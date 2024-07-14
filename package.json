@@ -12,6 +12,7 @@
     "build": "webpack"
   },
   "dependencies": {
+    "flowbite": "^2.4.1",
     "three": "^0.166.1"
   }
 }
