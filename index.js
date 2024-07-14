@@ -132,6 +132,40 @@ scene.add(Eyeboll);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
+// Create a clickable 3D object (e.g., a box)
+const boxGeometry = new THREE.BoxGeometry(5, 5, 5);
+const boxMaterial = new THREE.MeshStandardMaterial({
+    color: 0xff0000
+});
+const clickableBox = new THREE.Mesh(boxGeometry, boxMaterial);
+clickableBox.position.set(20, 0, 0); // Position the box
+scene.add(clickableBox);
+
+// Raycaster for detecting clicks
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+function onMouseClick(event) {
+    // Update mouse coordinates
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+    // Update the raycaster with the camera and mouse position
+    raycaster.setFromCamera(mouse, camera);
+
+    // Calculate objects intersected by the ray
+    const intersects = raycaster.intersectObjects(scene.children);
+
+    // Check if the clickableBox was clicked
+    for (let i = 0; i < intersects.length; i++) {
+        if (intersects[i].object === clickableBox) {
+            window.location.href = 'dist/home.html'; // Replace with your target URL
+        }
+    }
+}
+
+window.addEventListener('click', onMouseClick, false);
+
 function animate() {
     requestAnimationFrame(animate);
 
