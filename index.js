@@ -90,7 +90,7 @@ function addStar() {
 
 Array(200).fill().forEach(addStar);
 
-let textMesh;
+let textMesh, textMesh2;
 const textColor = new THREE.Color(0xffffff); // Initial text color
 
 // Load the font and create text
@@ -108,8 +108,28 @@ fontLoader.load(
         });
         textMesh = new THREE.Mesh(textGeometry, textMaterial);
         textMesh.position.x = -40;
-        textMesh.position.y = -25;
+        textMesh.position.y = 25;
         scene.add(textMesh);
+    }
+);
+
+// Load the font and create text
+const fontLoader2 = new FontLoader();
+fontLoader2.load(
+    'node_modules/three/examples/fonts/droid/droid_serif_regular.typeface.json',
+    (droidFont) => {
+        const textGeometry = new TextGeometry('Click The Moon to go to \n        the next page', {
+            size: 5,
+            height: 2,
+            font: droidFont,
+        });
+        const textMaterial = new THREE.MeshStandardMaterial({
+            color: textColor
+        });
+        textMesh2 = new THREE.Mesh(textGeometry, textMaterial);
+        textMesh2.position.x = -40;
+        textMesh2.position.y = -25;
+        scene.add(textMesh2);
     }
 );
 
@@ -132,14 +152,14 @@ scene.add(Eyeboll);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
-// Create a clickable 3D object (e.g., a box)
-const boxGeometry = new THREE.BoxGeometry(5, 5, 5);
-const boxMaterial = new THREE.MeshStandardMaterial({
-    color: 0xff0000
-});
-const clickableBox = new THREE.Mesh(boxGeometry, boxMaterial);
-clickableBox.position.set(20, 0, 0); // Position the box
-scene.add(clickableBox);
+// // Create a clickable 3D object (e.g., a box)
+// const boxGeometry = new THREE.BoxGeometry(5, 5, 5);
+// const boxMaterial = new THREE.MeshStandardMaterial({
+//     color: 0xff0000
+// });
+// const clickableBox = new THREE.Mesh(boxGeometry, boxMaterial);
+// clickableBox.position.set(20, 0, 0); // Position the box
+// scene.add(clickableBox);
 
 // Raycaster for detecting clicks
 const raycaster = new THREE.Raycaster();
@@ -158,7 +178,7 @@ function onMouseClick(event) {
 
     // Check if the clickableBox was clicked
     for (let i = 0; i < intersects.length; i++) {
-        if (intersects[i].object === clickableBox) {
+        if (intersects[i].object === moonMesh) {
             window.location.href = 'dist/home.html'; // Replace with your target URL
         }
     }
@@ -179,6 +199,13 @@ function animate() {
         const time = Date.now() * 0.001;
         textMesh.rotation.x = Math.sin(time) * 0.1;
         textMesh.rotation.y = Math.cos(time) * 0.1;
+    }
+
+    if (textMesh2) {
+        // Optionally, you can add rotation
+        const time = Date.now() * 0.001;
+        textMesh2.rotation.x = Math.sin(time) * 0.1;
+        textMesh2.rotation.y = Math.cos(time) * 0.1;
     }
 
     Earth.rotation.x += 0.005;
