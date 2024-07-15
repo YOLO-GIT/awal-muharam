@@ -25,10 +25,9 @@
 
 <body>
     <!-- Context One -->
-    <section class="sm:image-bg bg-white dark:bg-slate-500 w-full h-full">
+    <section class="bg-white dark:bg-slate-500 w-full h-full">
         <div class="max-w-screen-lg px-8 py-16 mx-auto">
-            <div
-                class="ml-auto place-self-center lg:col-span-7 mt-5 sm:mt-0 rounded-md p-14 sm:opacity-0 sm:hover:opacity-100 sm:hover:bg-slate-900 sm:hover:shadow-lg sm:hover:scale-105 transform transition-transform duration-500 ease-out">
+            <div class="ml-auto place-self-center lg:col-span-7 mt-5 sm:mt-0 rounded-md p-14">
                 <h1
                     class="text-center sm:text-left max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white text-gray-900 sm:text-gray-900">
                     Happy Islamic New Year!
@@ -43,7 +42,33 @@
                     which equates to 622 CE in the Gregorian calendar.
                 </p>
             </div>
+        </div>
+    </section>
 
+    <section class="slides">
+        <ul class="list">
+            <li class="slide">
+                <div class="background" style="background-image: url('../image/slide-one_1.webp');
+          "></div>
+                <div class="content">
+                    ISLAMIC
+                </div>
+            </li>
+            <li class="slide">
+                <div class="background" style="background-image: url('../image/slide-two_1.webp');
+          "></div>
+                <div class="content">
+                    NEW
+                </div>
+            </li>
+            <li class="slide">
+                <div class="background" style="background-image: url('../image/slide-three_1.webp');
+          "></div>
+                <div class="content">
+                    YEAR
+                </div>
+            </li>
+        </ul>
     </section>
 
     <!-- Context Two -->
@@ -173,7 +198,43 @@
     </footer>
 
     <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="../node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="../node_modules/gsap/dist/ScrollTrigger.min.js"></script>
     <script src="../socials.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        let container = document.querySelector(".slides"),
+            slides = gsap.utils.toArray(".slide"),
+            getRatio = (el) => window.innerHeight / (window.innerHeight + el.offsetHeight);
+
+        slides.forEach((slide, i) => {
+            let bg = slide.querySelector(".background"),
+                content = slide.querySelector(".content"),
+                tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: slide,
+                        start: () => i ? "top bottom" : "top top",
+                        end: "bottom top",
+                        scrub: true,
+                        invalidateOnRefresh: true
+                    }
+                });
+
+            tl.fromTo(bg, {
+                y: () => i ? -window.innerHeight * getRatio(slide) : 0
+            }, {
+                y: () => window.innerHeight * (1 - getRatio(slide)),
+                ease: "none"
+            });
+            tl.fromTo(content, {
+                y: () => i ? window.innerHeight * -getRatio(slide) * 2 : 0
+            }, {
+                y: () => window.innerHeight * getRatio(slide) * 2,
+                ease: "none"
+            }, 0);
+        });
+    </script>
 </body>
 
 </html>
