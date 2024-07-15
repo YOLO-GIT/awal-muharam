@@ -22,6 +22,13 @@ Url: https://www.freepik.com
 Search Format: Awal Muharram / Islamic New Year
 ```
 
+- Scroll (Parallax)
+
+```bash
+Source: Codepen
+Url: https://codepen.io/GreenSock/details/BarmbXq
+```
+
 ## <p align="center"><img src="name_template_latest.png"></p>
 
 # Security
