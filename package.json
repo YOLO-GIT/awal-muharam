@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "flowbite": "^2.4.1",
+    "gsap": "^3.12.5",
     "three": "^0.166.1"
   }
 }
