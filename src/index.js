@@ -96,7 +96,7 @@ const textColor = new THREE.Color(0xffffff); // Initial text color
 // Load the font and create text
 const fontLoader = new FontLoader();
 fontLoader.load(
-    'fonts/helvetiker_bold.typeface.json',
+    './fonts/helvetiker_bold.typeface.json',
     function (font) {
         const textGeometry = new TextGeometry('Happy Islamic New Year', {
             size: 5,
@@ -116,7 +116,7 @@ fontLoader.load(
 // Load the font and create text
 const fontLoader2 = new FontLoader();
 fontLoader2.load(
-    'fonts/helvetiker_bold.typeface.json',
+    './fonts/helvetiker_bold.typeface.json',
     function (font) {
         const textGeometry = new TextGeometry('Click The Moon to go to \n        the next page', {
             size: 5,
