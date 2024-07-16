@@ -96,12 +96,13 @@ const textColor = new THREE.Color(0xffffff); // Initial text color
 // Load the font and create text
 const fontLoader = new FontLoader();
 fontLoader.load(
-    'fonts/helvetiker_regular.typeface.json',
+    `../node_modules/three/examples/fonts/helvetiker_bold.typeface.json`,
     function (font) {
         const textGeometry = new TextGeometry('Happy Islamic New Year', {
-            size: 5,
-            height: 2,
             font: font,
+            size: 5,
+            depth: 2,
+
         });
         const textMaterial = new THREE.MeshStandardMaterial({
             color: textColor
@@ -116,11 +117,11 @@ fontLoader.load(
 // Load the font and create text
 const fontLoader2 = new FontLoader();
 fontLoader2.load(
-    'fonts/helvetiker_regular.typeface.json',
+    `../node_modules/three/examples/fonts/helvetiker_bold.typeface.json`,
     function (font) {
         const textGeometry = new TextGeometry('Click The Moon to go to \n        the next page', {
             size: 5,
-            height: 2,
+            depth: 2,
             font: font,
         });
         const textMaterial = new THREE.MeshStandardMaterial({
@@ -184,7 +185,7 @@ function onMouseClick(event) {
                 isMusicPlaying = true;
             }
         } else if (intersects[i].object === moonMesh) {
-            window.location.href = 'home.html'; // Replace with your target URL
+            window.location.href = '../dist/home.html'; // Replace with your target URL
         }
     }
 }
