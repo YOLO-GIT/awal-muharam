@@ -23,11 +23,30 @@
 
 <body>
 
-    <canvas id="bg"></canvas>
-    <audio id="bg-music" loop>
-        <source src="music/bg-music.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <!-- For PC -->
+    <section class="hidden sm:block">
+        <canvas id="bg"></canvas>
+        <audio id="bg-music" loop>
+            <source src="music/bg-music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </section>
+
+    <!-- For Mobile -->
+    <section class="lg:hidden flex flex-row justify-center items-center h-screen">
+        <!-- Button -->
+        <section class="z-30">
+            <a href="dist/home.html"
+                class="text-6xl italic bg-white text-green-500 hover:bg-green-500 hover:text-white py-4 px-8 rounded-full font-semibold transition duration-300 z-30 shadow-lg">
+                Get Started
+            </a>
+        </section>
+
+        <!-- Gif -->
+        <div class="absolute inset-0 flex justify-center items-center">
+            <img src="image/intro-2x-RIFE-RIFE3.1-20fps.gif" alt="Stunning GIF" class="gif" />
+        </div>
+    </section>
 
     <script type="module" src="dist/index.bundle.js"></script>
 </body>

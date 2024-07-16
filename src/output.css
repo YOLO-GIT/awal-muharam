@@ -816,6 +816,16 @@ body::-webkit-scrollbar {
   font-weight: 500 !important;
 }
 
+.gif {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* This property maintains the aspect ratio and covers the entire container */
+  z-index: -1;
+  opacity: 0.5;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1012,6 +1022,16 @@ body::-webkit-scrollbar {
   margin-right: auto;
 }
 
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1046,6 +1066,14 @@ body::-webkit-scrollbar {
 
 .mt-6 {
   margin-top: 1.5rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
+}
+
+.mt-40 {
+  margin-top: 10rem;
 }
 
 .box-border {
@@ -1195,6 +1223,10 @@ body::-webkit-scrollbar {
   height: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -1233,6 +1265,10 @@ body::-webkit-scrollbar {
 
 .w-full {
   width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
 }
 
 .max-w-2xl {
@@ -2153,6 +2189,10 @@ body::-webkit-scrollbar {
   border-radius: 1rem;
 }
 
+.rounded-full {
+  border-radius: 9999px;
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -2587,6 +2627,11 @@ body::-webkit-scrollbar {
   padding-bottom: 0.75rem;
 }
 
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -2663,6 +2708,11 @@ body::-webkit-scrollbar {
 
 .text-5xl {
   font-size: 3rem;
+  line-height: 1;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
   line-height: 1;
 }
 
@@ -2828,6 +2878,11 @@ body::-webkit-scrollbar {
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+
+.text-green-500 {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -3165,6 +3220,10 @@ body::-webkit-scrollbar {
   transition-duration: 150ms;
 }
 
+.duration-300 {
+  transition-duration: 300ms;
+}
+
 .duration-500 {
   transition-duration: 500ms;
 }
@@ -3296,6 +3355,11 @@ body::-webkit-scrollbar {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-green-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-white:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -3327,6 +3391,11 @@ body::-webkit-scrollbar {
 .hover\:text-red-500:hover {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {
@@ -3394,6 +3463,10 @@ body::-webkit-scrollbar {
     margin-top: 0px;
   }
 
+  .sm\:block {
+    display: block;
+  }
+
   .sm\:w-96 {
     width: 24rem;
   }
@@ -3450,6 +3523,10 @@ body::-webkit-scrollbar {
 @media (min-width: 1024px) {
   .lg\:col-span-7 {
     grid-column: span 7 / span 7;
+  }
+
+  .lg\:hidden {
+    display: none;
   }
 
   .lg\:grid-cols-2 {
