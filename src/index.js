@@ -96,7 +96,7 @@ const textColor = new THREE.Color(0xffffff); // Initial text color
 // Load the font and create text
 const fontLoader = new FontLoader();
 fontLoader.load(
-    'node_modules/three/examples/fonts/droid/droid_serif_regular.typeface.json',
+    '../node_modules/three/examples/fonts/droid/droid_serif_regular.typeface.json',
     (droidFont) => {
         const textGeometry = new TextGeometry('Happy Islamic New Year', {
             size: 5,
@@ -116,7 +116,7 @@ fontLoader.load(
 // Load the font and create text
 const fontLoader2 = new FontLoader();
 fontLoader2.load(
-    'node_modules/three/examples/fonts/droid/droid_serif_regular.typeface.json',
+    '../node_modules/three/examples/fonts/droid/droid_serif_regular.typeface.json',
     (droidFont) => {
         const textGeometry = new TextGeometry('Click The Moon to go to \n        the next page', {
             size: 5,
