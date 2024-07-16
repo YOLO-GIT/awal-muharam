@@ -197,12 +197,12 @@
     </footer>
 
     <script src="node_modules/flowbite/dist/flowbite.min.js"></script>
-    <script src="node_modules/gsap/dist/gsap.min.js"></script>
-    <script src="node_modules/gsap/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="socials.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
-            gsap.registerPlugin(ScrollTrigger);
+            gsap.registerPlugin(ScrollTrigger)
 
             let container = document.querySelector(".slides"),
                 slides = gsap.utils.toArray(".slide"),
