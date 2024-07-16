@@ -96,7 +96,7 @@ const textColor = new THREE.Color(0xffffff); // Initial text color
 // Load the font and create text
 const fontLoader = new FontLoader();
 fontLoader.load(
-    './fonts/helvetiker_bold.typeface.json',
+    'fonts/helvetiker_regular.typeface.json',
     function (font) {
         const textGeometry = new TextGeometry('Happy Islamic New Year', {
             size: 5,
@@ -116,7 +116,7 @@ fontLoader.load(
 // Load the font and create text
 const fontLoader2 = new FontLoader();
 fontLoader2.load(
-    './fonts/helvetiker_bold.typeface.json',
+    'fonts/helvetiker_regular.typeface.json',
     function (font) {
         const textGeometry = new TextGeometry('Click The Moon to go to \n        the next page', {
             size: 5,
@@ -246,3 +246,41 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+
+// -----------------------
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    gsap.registerPlugin(ScrollTrigger)
+
+    let container = document.querySelector(".slides"),
+        slides = gsap.utils.toArray(".slide"),
+        getRatio = (el) => window.innerHeight / (window.innerHeight + el.offsetHeight);
+
+    slides.forEach((slide, i) => {
+        let bg = slide.querySelector(".background"),
+            content = slide.querySelector(".content"),
+            tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: slide,
+                    start: () => i ? "top bottom" : "top top",
+                    end: "bottom top",
+                    scrub: true,
+                    invalidateOnRefresh: true
+                }
+            });
+
+        tl.fromTo(bg, {
+            y: () => i ? -window.innerHeight * getRatio(slide) : 0
+        }, {
+            y: () => window.innerHeight * (1 - getRatio(slide)),
+            ease: "none"
+        });
+        tl.fromTo(content, {
+            y: () => i ? window.innerHeight * -getRatio(slide) * 2 : 0
+        }, {
+            y: () => window.innerHeight * getRatio(slide) * 2,
+            ease: "none"
+        }, 0);
+    });
+})
