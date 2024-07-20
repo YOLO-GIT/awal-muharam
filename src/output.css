@@ -1022,16 +1022,6 @@ body::-webkit-scrollbar {
   margin-right: auto;
 }
 
-.my-auto {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.my-20 {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-}
-
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1066,14 +1056,6 @@ body::-webkit-scrollbar {
 
 .mt-6 {
   margin-top: 1.5rem;
-}
-
-.mt-20 {
-  margin-top: 5rem;
-}
-
-.mt-40 {
-  margin-top: 10rem;
 }
 
 .box-border {
@@ -1265,10 +1247,6 @@ body::-webkit-scrollbar {
 
 .w-full {
   width: 100%;
-}
-
-.w-screen {
-  width: 100vw;
 }
 
 .max-w-2xl {
@@ -3467,6 +3445,10 @@ body::-webkit-scrollbar {
     display: block;
   }
 
+  .sm\:hidden {
+    display: none;
+  }
+
   .sm\:w-96 {
     width: 24rem;
   }
@@ -3509,6 +3491,10 @@ body::-webkit-scrollbar {
 }
 
 @media (min-width: 768px) {
+  .md\:flex {
+    display: flex;
+  }
+
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
@@ -3525,8 +3511,8 @@ body::-webkit-scrollbar {
     grid-column: span 7 / span 7;
   }
 
-  .lg\:hidden {
-    display: none;
+  .lg\:block {
+    display: block;
   }
 
   .lg\:grid-cols-2 {
